@@ -226,6 +226,7 @@ nav + .container {
 .user-stats > .ml-auto {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .user-stats > .ml-auto .btn {
