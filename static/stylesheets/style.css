@@ -227,6 +227,7 @@ nav + .container {
   display: flex;
   align-items: center;
   gap: 10px;
+  padding-bottom: 1%;
 }
 
 .user-stats > .ml-auto .btn {
