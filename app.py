@@ -176,7 +176,7 @@ def show_following(user_id):
 
     user = User.query.get_or_404(user_id)
     return render_template('users/following.html', user=user)
-
+ 
 
 @app.route('/users/<int:user_id>/followers')
 def users_followers(user_id):
@@ -328,8 +328,10 @@ def homepage():
     """
 
     if g.user:
+        following_ids = [following.id for following in g.user.following]
         messages = (Message
                     .query
+                    .filter(Message.user_id.in_(following_ids))
                     .order_by(Message.timestamp.desc())
                     .limit(100)
                     .all())
