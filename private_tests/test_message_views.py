@@ -61,7 +61,7 @@ class MessageViewTestCase(TestCase):
 
         with self.client as c:
             with c.session_transaction() as sess:
-                sess[CURR_USER_KEY] = self.testuser.id
+                sess[CURR_USER_KEY] = 8989
 
             # Now, that session setting is saved, so we can have
             # the rest of ours test
