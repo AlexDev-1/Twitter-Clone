@@ -11,15 +11,8 @@ CURR_USER_KEY = "curr_user"
 
 app = Flask(__name__)
 
-username = os.environ['PGUSER']
-password = os.environ['PGPASSWORD']
-
-# Get DB_URI from environ variable (useful for production/testing) or,
-# if not set there, use development local db.
-# app.config['SQLALCHEMY_DATABASE_URI'] = (
-#    os.environ.get('DATABASE_URL', 'postgresql:///warbler'))
-
-app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{username}:{password}@localhost:5432/warbler'
+app.config['SQLALCHEMY_DATABASE_URI'] = (
+    os.environ.get('DATABASE_URL', 'postgresql:///warbler'))
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = False
